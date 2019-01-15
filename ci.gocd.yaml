@@ -2,10 +2,10 @@ format_version: 2
 pipelines:
   simple-pipeline:
     group: default
-    label_template: "${CNT}"
+    label_template: "${testmaterial}"
     lock_behavior: none
     materials:
-      scripts:
+      testmaterial:
         git: https://github.com/Matzz/gocd-test.git
         branch: master
     stages:
