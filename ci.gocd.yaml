@@ -1,1 +1,30 @@
-test
+format_version: 2
+pipelines:
+  simple-pipeline:
+    group: default
+    label_template: "${CNT}"
+    lock_behavior: none
+    materials:
+      scripts:
+        git: https://github.com/Matzz/gocd-test.git
+        branch: master
+    stages:
+      - start:
+          clean_workspace: false
+          jobs:
+            start:
+              tasks:
+               - exec:
+                   command: bash
+                   arguments:
+                    - "-c"
+                    - "echo 'TEST'"
+      - end:
+          clean_workspace: false #  "Clean Working Directory" is unchecked in our builds
+          jobs:
+            end:
+              tasks:
+               - exec:
+                   command: bash
+                   arguments:
+                    - "ls"
